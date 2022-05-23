@@ -252,7 +252,7 @@ function steelBeamFive(id1, id2) {
             path: '#canti-udl-main-beam'
         }, // from shape
         {
-            path: '#steel-beam-5'
+            path: '#steel-beam-6'
         }, // to shape
         { // options
             easing: 'easingCubicInOut',
@@ -268,7 +268,7 @@ function steelBeamSix(id1, id2) {
             path: '#canti-udl-main-beam'
         }, // from shape
         {
-            path: '#beam12'
+            path: '#steel-beam-6'
         }, // to shape
         { // options
             easing: 'easingCubicInOut',

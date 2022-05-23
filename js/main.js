@@ -72,16 +72,13 @@ function playSimulation() {
     var value;
     for (var i = 0; i < radios.length; i++) {
         if (radios[i].type === 'radio' && radios[i].checked) {
-            // get value, set checked flag or do whatever you need to
+                        // get value, set checked flag or do whatever you need to
             value = radios[i].value;
             var selectedDropdown = document.getElementById("dropdown");
             console.log(selectedDropdown);
             var selectedDropdownval = selectedDropdown.options[selectedDropdown.selectedIndex].text;
-            // var lengthval = document.getElementById("length").value
-            // console.log(lengthval);
-            // var depthval = document.getElementById("depth").value
-            // console.log(depthval);
-          
+        }
+    }
             if (previousClickedEle.length > 0) {
                 for (var i = 0; i < previousClickedEle.length; i++) {
                     console.log("test");
@@ -112,22 +109,22 @@ function playSimulation() {
                 // console.log("test");
                 moveArrowDown("arrow", 120);
                 const myTimeout = setTimeout(function() {
-                    // previousClickedEle.push("set1");
-                    // document.getElementById("set1").style.display = "block";
+                    previousClickedEle.push("set1");
+                    document.getElementById("set1").style.display = "block";
                     document.getElementById("procedure-message").innerHTML = "Select Cantilever from the dropdown menu";
-                    // document.getElementById("mes1").innerHTML = "Shear force is constant throughout the beam";
-                    // document.getElementById("mes2").innerHTML = "Maiximum bending movement occurs at the initial fixed end";
+                    document.getElementById("mes1").innerHTML = "Shear force is constant throughout the beam";
+                    document.getElementById("mes2").innerHTML = "Maiximum bending movement occurs at the initial fixed end";
                     cantiPlBeam("#canti-pl-main-beam", "#canti-beam-pl");
-                    // previousClickedBeam.push("beam1");
-                    // document.getElementById("beam1").style.display = "none";
-                    // console.log("beam1");
+                    previousClickedBeam.push("beam1");
+                    document.getElementById("beam1").style.display = "none";
+                    console.log("beam1");
                     previousClickedMainBeam.push("main-beam1");
                     document.getElementById("main-beam1").style.display = "block";
                     mainBeamDisplay.push("main-beam1");
                     document.getElementById("main-beam1").style.display = "block";
-                    //showObservations('svg-sfd','svg-bmd');
-                    // animateObserve('.canti-pl-sfd path', 'M 100 300 L 350 300 L 350 350 L 100 350 L 100 300');
-                    // animateObserve('.canti-pl-bmd path', 'M 100 300 L 450 300 L 100 400 L 100 300 L 100 300');
+                    // showObservations('svg-sfd','svg-bmd');
+                    animateObserve('.canti-pl-sfd path', 'M 200 400 L 200 200 L 400 200 L 400 400 L 400 250 L 200 150 L 200 400 L 150 200 L 350 200 L 400 400');
+                    animateObserve('.canti-pl-bmd path', 'M 200 400 L 200 200 L 400 200 L 400 400 L 400 250 L 200 150 L 200 400 L 250 400 L 150 200 L 350 200 L 450 400 L 400 400 ');
                 }, 1500);
             }
             if (value === "Bridge 2" && selectedDropdownval === "Portal Frame1") {
@@ -192,12 +189,13 @@ function playSimulation() {
                  }, 1000);
             }
             if (value === "Bridge 5" && selectedDropdownval === "Portal Frame1") {
+                console.log("test");
                 previousClickedEle.push("arrow");
                 document.getElementById("arrow").style.display = "none";
                 previousClickedEle.push("set3");
                 document.getElementById("set3").style.display = "block";
                 // document.getElementById("set3").style.textAlign = "center";
-                moveArrowLeft("set3", 75    );
+                moveArrowLeft("set3", 75);
                 const myTimeout = setTimeout(function() {
                     // document.getElementById("mes9").innerHTML = "Shear force varies linearly, maximum SF occurs at initial fixed ends";
                     // document.getElementById("mes10").innerHTML = "Maximum B.M occurs at fixed end";
@@ -215,7 +213,7 @@ function playSimulation() {
                 document.getElementById("arrow").style.display = "none";
                 previousClickedEle.push("set5");
                 document.getElementById("set5").style.display = "block";
-                document.getElementById("set5").style.textAlign = "center";
+                // document.getElementById("set5").style.teyxtAlign = "center";
                 moveArrowRight("set5", 75);
                 const myTimeout = setTimeout(function() {
                     // document.getElementById("mes11").innerHTML = "text message of sf";
@@ -309,48 +307,84 @@ function playSimulation() {
                 }, 1000);
             }
             if (value === "Frame 5" && selectedDropdownval === "Portal Frame2") {
+                console.log("test");
                 previousClickedEle.push("arrow");
                 document.getElementById("arrow").style.display = "none";
-                document.getElementById("set5").style.textAlign = "left";
-                previousClickedEle.push("set3");
-                document.getElementById("set3").style.display = "block";
+                document.getElementById("set4").style.textAlign = "right";
+                // document.getElementById("set4").style.marginTop = "50px";
+                previousClickedEle.push("set4");
+                document.getElementById("set4").style.display = "block";
 
-                moveArrowLeft("set3", 78);
+                moveArrowRight("set4", 78);
                 const myTimeout = setTimeout(function() {
                     // previousClickedEle.push("set8");
                     // document.getElementById("set8").style.display = "block";
                     // document.getElementById("mes15").innerHTML = "text message of sf";
                     // document.getElementById("mes16").innerHTML = "text message of bm";
-                    steelBeamFive("#canti-udl-main-beam", "#steel-beam-5");
+                    
                     // previousClickedBeam.push("beam8");
                     // document.getElementById("beam8").style.display = "none";
                     previousClickedMainBeam.push("main-beam2");
                     document.getElementById("main-beam2").style.display = "block";
+                    steelBeamFive("#canti-udl-main-beam", "#steel-beam-6");
                     // animateObserve('.twoss-udl-sfd path', 'M 150 150 L 450 150 L 450 250 L 150 50 L 150 150');
                     // animateObserve('.twoss-udl-bmd path', 'M 100 300 L 400 300 Q 250 150 100 300');
                 }, 1000);
+
             }
             if (value === "Frame 6" && selectedDropdownval === "Portal Frame2") {
+                console.log("test");
                 previousClickedEle.push("arrow");
                 document.getElementById("arrow").style.display = "none";
-                previousClickedEle.push("set5");
-                document.getElementById("set5").style.display = "block";
-                document.getElementById("set5").style.textAlign = "left";                
-                moveArrowRight("set5", 100);
+                document.getElementById("set4").style.textAlign = "right";
+                // document.getElementById("set4").style.marginTop = "50px";
+                previousClickedEle.push("set4");
+                document.getElementById("set4").style.display = "block";
+
+                moveArrowRight("set4", 78);
                 const myTimeout = setTimeout(function() {
                     // previousClickedEle.push("set8");
                     // document.getElementById("set8").style.display = "block";
                     // document.getElementById("mes15").innerHTML = "text message of sf";
                     // document.getElementById("mes16").innerHTML = "text message of bm";
-                    steelBeamSix("#canti-udl-main-beam", "#beam12");
-                    // previousClickedBeam.push("beam12");
-                    // document.getElementById("beam12").style.display = "block";
+                    
+                    // previousClickedBeam.push("beam8");
+                    // document.getElementById("beam8").style.display = "none";
                     previousClickedMainBeam.push("main-beam2");
                     document.getElementById("main-beam2").style.display = "block";
+                    steelBeamFive("#canti-udl-main-beam", "#steel-beam-5");
+                    // animateObserve('.twoss-udl-sfd path', 'M 150 150 L 450 150 L 450 250 L 150 50 L 150 150');
+                    // animateObserve('.twoss-udl-bmd path', 'M 100 300 L 400 300 Q 250 150 100 300');
+                }, 1000);
+
+            }
+            console.log("sravanthi");   
+            if (value === "Frame 6" && selectedDropdownval === "Portal Frame2") {
+                previousClickedEle.push("arrow");
+                document.getElementById("arrow").style.display = "none";
+                document.getElementById("set4").style.textAlign = "right";
+                // document.getElementById("set4").style.marginTop = "50px";
+                previousClickedEle.push("set4");
+                document.getElementById("set4").style.display = "block";
+
+                moveArrowRight("set4", 78);
+                const myTimeout = setTimeout(function() {
+                    // previousClickedEle.push("set8");
+                    // document.getElementById("set8").style.display = "block";
+                    // document.getElementById("mes15").innerHTML = "text message of sf";
+                    // document.getElementById("mes16").innerHTML = "text message of bm";
+                    
+                    // previousClickedBeam.push("beam8");
+                    // document.getElementById("beam8").style.display = "none";
+                    previousClickedMainBeam.push("main-beam2");
+                    document.getElementById("main-beam2").style.display = "block";
+                    steelBeamFive("#canti-udl-main-beam", "#steel-beam-6");
                     // animateObserve('.twoss-udl-sfd path', 'M 150 150 L 450 150 L 450 250 L 150 50 L 150 150');
                     // animateObserve('.twoss-udl-bmd path', 'M 100 300 L 400 300 Q 250 150 100 300');
                 }, 1000);
             }
-        }
-    }
-}
+        }   
+        
+    
+
+    
